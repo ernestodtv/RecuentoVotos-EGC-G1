@@ -17,6 +17,7 @@ install:
  
 script:
  - python recuento/tests.py
+ - bash script_build_push_image.sh 
 
 branches:
  only:
