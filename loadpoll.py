@@ -15,11 +15,12 @@ from recuento.models import Vote
 
 
 def loadpoll(pollid):
+      
 
-    user        = os.environ.get('MYSQL_USER')
-    password    = os.environ.get('MYSQL_PASSWORD')
-    url         = os.environ.get('MYSQL_URL')
-    port        = os.environ.get('MYSQL_PORT')
+    user        = os.environ.get('DATABASE_VOTE_USER')
+    password    = os.environ.get('DATABASE_VOTE_PASS')
+    url         = os.environ.get('DATABASE_URL')
+    port        = os.environ.get('DATABASE_PORT')
     database    = os.environ.get('MYSQL_DATABASE')
 
     user     = 'root'            if user     == None else user
