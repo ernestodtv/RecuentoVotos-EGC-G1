@@ -9,10 +9,15 @@ ADD . /home/RecuentoVotos-EGC-G1
 
 WORKDIR /home/RecuentoVotos-EGC-G1
 
-RUN python manage.py makemigrations --noinput
-RUN python manage.py migrate --noinput
-RUN python manage.py test --noinput
+ENV DATABASE_URL: g1_mariadb
+ENV DATABASE_PORT: 3306
+ENV DATABASE_VOTE_USER: votaciones-user
+ENV DATABASE_VOTE_PASS: votaciones-user-1928
 
-EXPOSE 8000
+RUN python manage.py makemigrations --noinput \
+ && python manage.py migrate --noinput \
+ && python manage.py test --noinput
 
-ENTRYPOINT [ "python", "manage.py", "runserver",  "0.0.0.0:8000"]
+EXPOSE 52007
+
+ENTRYPOINT [ "python", "manage.py", "runserver",  "0.0.0.0:52007"]
