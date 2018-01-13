@@ -17,17 +17,11 @@ from recuento.models import Vote
 def loadpoll(pollid):
       
 
-    user        = os.environ.get('DATABASE_VOTE_USER')
-    password    = os.environ.get('DATABASE_VOTE_PASS')
-    url         = os.environ.get('DATABASE_URL')
-    port        = os.environ.get('DATABASE_PORT')
-    database    = os.environ.get('MYSQL_DATABASE')
-
-    user     = 'root'            if user     == None else user
-    password = 'recvotes'        if password == None else password
-    url      = 'localhost'       if url      == None else url
-    port     =  3306             if port     == None else port
-    database = 'votaciones_splc' if database == None else database
+    user        = os.environ.get('DATABASE_VOTE_USER','root')
+    password    = os.environ.get('DATABASE_VOTE_PASS','recvotes')
+    url         = os.environ.get('DATABASE_URL','localhost')
+    port        = os.environ.get('DATABASE_PORT', 3306)
+    database    = os.environ.get('MYSQL_DATABASE','votaciones_splc')
 
     cnx = mysql.connector.connect(
         user = user,
