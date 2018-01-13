@@ -23,6 +23,27 @@ def approvecount(pollid):
         for option in QuestionOption:
             optionspervote=option.optionpervote_set.all()
             new_result = Result.objects.get_or_create(question_option =option,quantity=len(optionspervote))
+# def simplecount(pollid):
+#    pass
+#    '''
+#    Obtener la lista de preguntas de la poll
+#    '''
+#    obj = Poll.objects.get(pk=pollid)
+#    '''
+#    Por cada pregunta obtener la lista de opciones de la pregunta
+#    '''
+#
+#    for question in obj.question_set.all():
+#        '''
+#        #   Por cada opcion de la pregunta miramos la longitud del set_optionPerVote->Numero de veces que se ha votado esa opcion
+#        '''
+#        QuestionOption=question.questionoption_set.all()
+#        for option in QuestionOption:
+#            optionspervote=option.optionpervote_set.all()
+#            for opv in optionspervote:
+#                opvacum += opv
+#            new_result = Result.objects.get_or_create(question_option =option,quantity=opvacum)
+
 if 1==0 :
     approvecount(10)
     for a in Result.objects.all():
