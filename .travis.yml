@@ -22,7 +22,7 @@ before_install:
   - mysql -u root --default-character-set=utf8 votaciones_splc < db_dump/03_script_populate_votaciones_splc.sql
  
 script:
- - python recuento/tests.py
+ - python manage.py test --noinput
  - bash script_build_push_image.sh 
 
 branches:
