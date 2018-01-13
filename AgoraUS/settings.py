@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY','g)jn4-5ka2wmjh&7*1s&=z!3%#5x*_d#zy(%xgg5i+8%4!dk+w')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool( os.environ.get('DEBUG',"True"))=="True"
+DEBUG = os.environ.get('DEBUG',"True")=="True"
 
-ALLOWED_HOSTS = [os.environ.get('HOST',)]
+ALLOWED_HOSTS = [os.environ.get('HOST','localhost')]
 
 
 # Application definition
