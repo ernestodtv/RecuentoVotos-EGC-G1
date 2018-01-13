@@ -1,22 +1,9 @@
 version: '2.0'
 services:
   recvotes:
-    build: .
-    # environgit stautsment:
-      # MYSQL_URL: g1_mariadb
-      # MYSQL_PORT: 3306
-      # MYSQL_USER: votaciones-user
-      # MYSQL_PASSWORD: votaciones-user-1928
-      # MYSQL_TABLE: votaciones_splc
-    volumes: 
-      - .:/home/RecuentoVotos-EGC-G1
-    ports:
-     - 52007:8000
-
   g1_mariadb:
     image: mariadb:10.1
     environment:
-      #MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
       MYSQL_ROOT_PASSWORD: recvotes
       MYSQL_DATABASE: splc2017
     volumes: 
@@ -24,3 +11,8 @@ services:
       - /var/lib/mysql
     ports:
       - "3306:3306"
+
+
+
+
+
