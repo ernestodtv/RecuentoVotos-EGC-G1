@@ -1,0 +1,17 @@
+version: '2.0'
+services:
+  g1_mariadb:
+    image: mariadb:10.1
+    environment:
+      MYSQL_ROOT_PASSWORD: recvotes
+      MYSQL_DATABASE: splc2017
+    volumes: 
+      - ./db_dump:/docker-entrypoint-initdb.d
+      - /var/lib/mysql
+    ports:
+      - "3306:3306"
+
+
+
+
+

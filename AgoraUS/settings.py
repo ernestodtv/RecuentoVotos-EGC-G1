@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,12 +19,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'g)jn4-5ka2wmjh&7*1s&=z!3%#5x*_d#zy(%xgg5i+8%4!dk+w'
+SECRET_KEY = os.environ.get('SECRET_KEY','g)jn4-5ka2wmjh&7*1s&=z!3%#5x*_d#zy(%xgg5i+8%4!dk+w')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG',"True")=="True"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [os.environ.get('URL_RECVOTOS','localhost')]
 
 
 # Application definition
@@ -41,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
 
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
