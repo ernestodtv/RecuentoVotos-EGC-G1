@@ -6,9 +6,13 @@ class ResultSerializer(serializers.ModelSerializer):
         model = Result
         fields = ('quantity',)
         
+class ResultField(serializers.RelatedField):
+    def to_representation(self, value):
+        return value.quantity
+        
 
 class QuestionOptionSerializer(serializers.ModelSerializer):
-    result = ResultSerializer()
+    result = ResultField(read_only=True)
     class Meta:
         model = QuestionOption
         fields = ('description', 'result')
@@ -18,4 +22,4 @@ class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
         fields = ('title', 'description', 'optional', 'multiple', 'questionoption_set')
-        depth = 5
+        depth = 5 
